@@ -21,4 +21,8 @@ class NoteRepositoryImpl(
 
     }
 
+    override fun deleteNote(id: Int) {
+        localNoteDataSource.deleteNote(id)
+    }
+
 }

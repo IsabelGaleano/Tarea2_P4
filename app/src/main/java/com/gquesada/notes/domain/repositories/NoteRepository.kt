@@ -7,4 +7,6 @@ interface NoteRepository {
     fun getAllNotes(): List<NoteModel>
 
     fun addNote(note: NoteModel)
+
+    fun deleteNote(id: Int)
 }

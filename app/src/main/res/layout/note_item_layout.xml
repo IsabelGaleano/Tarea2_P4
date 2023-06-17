@@ -13,14 +13,16 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="#Cenfotec"/>
+        tools:text="#Cenfotec" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/note_item_title"
         style="@style/TextAppearance.Material3.TitleMedium"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="337dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/note_tag"
         tools:text="Definir Tarea #2" />
@@ -28,11 +30,28 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/note_item_description"
         style="@style/TextAppearance.Material3.BodyMedium"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="336dp"
+        android:layout_height="36dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.013"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/note_item_title"
         tools:text="Definir los requisitos a tomar en cuenta para la tarea 2" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="31dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/note_item_description"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/icons8_garbage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
