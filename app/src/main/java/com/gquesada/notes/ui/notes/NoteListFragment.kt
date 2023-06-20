@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -36,12 +39,21 @@ class NoteListFragment : Fragment() {
         initViews(view)
         viewModel = ViewModelProvider(this)[NoteListViewModel::class.java]
         observe()
+
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val button: Button = view.findViewById(R.id.button_add_note_list)
+
+        button.setOnClickListener {
+            changeToFragment()
+        }
+
         viewModel.onViewReady()
+
+
     }
 
     private fun initViews(view: View) {
@@ -67,6 +79,15 @@ class NoteListFragment : Fragment() {
 
     private fun onListItemClicked(noteModel: NoteModel) {
         Toast.makeText(context, "${noteModel.title} was clicked", Toast.LENGTH_LONG).show()
-        // Todo remove item
+        viewModel.deleteNote(noteModel.id)
+        viewModel.onViewReady()
+    }
+
+    fun changeToFragment() {
+        val fragmentManager: FragmentManager = requireFragmentManager()
+        val transaction: FragmentTransaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container, AddNoteFragment())
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 }
